@@ -8,6 +8,8 @@
 
 /* Global Variables */
 :root {
+  /* Colors */
+
   --clr-primary-hsl-400: 252, 100%, 67%;
   --clr-primary-hsl-500: 256, 72%, 46%;
 
@@ -34,10 +36,24 @@
     var(--clr-primary-400),
     var(--clr-secondary-400)
   );
+
   --gradient-circle: linear-gradient(
     var(--clr-primary-500),
     hsl(var(--clr-secondary-hsl-500), 0)
   );
+
+  /* Typography */
+
+  --ff-default: "HankenGrotesk", sans-serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  --fs-400: 1.125rem;
+  --fs-500: 1.5rem;
+  --fs-600: 2rem;
+  --fs-900: 4.5rem;
 }
 
 /* CSS Reset */
@@ -45,6 +61,10 @@
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
+}
+
+* {
   margin: 0;
   font: inherit;
 }
@@ -55,4 +75,44 @@ svg {
   max-width: 100%;
 }
 
+/* Utility */
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.grid {
+  display: grid;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
 /* Styles */
+
+.button {
+  display: block;
+}
+
+body {
+  color: var(--clr-neutral-700);
+  font-family: var(--ff-default);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-regular);
+}
+
+@media (min-width: 600px) {
+  body {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+  }
+
+  .card {
+    max-width: 736px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
